@@ -25,7 +25,6 @@ function roadBridge(peoples) {
   let time = 0;
 
   let left = [...peoples].sort((a, b) => a.time - b.time);
-  let right = [];
 
   let fatest = left.shift();
   let secondFatest = left.shift();
