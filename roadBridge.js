@@ -27,21 +27,19 @@ function roadBridge(peoples) {
   let left = [...peoples].sort((a, b) => a.time - b.time);
   let right = [];
 
-  while (time === 0) {
-    let fatest = left.shift();
-    let secondFatest = left.shift();
-    let secondLowest = left.shift();
-    let lowest = left.shift();
+  let fatest = left.shift();
+  let secondFatest = left.shift();
+  let secondLowest = left.shift();
+  let lowest = left.shift();
 
-    const fatestStrategie =
-      fatest.time * 2 + secondFatest.time + lowest.time + secondLowest.time; // 1 * 2 + 2 + 5 + 10 = 19
-    const lowestStrategie =
-      secondLowest.time * 2 + lowest.time + fatest.time + secondFatest.time; // 5 * 2 + 10 + 1 + 2 = 23
+  const fatestStrategie =
+    fatest.time * 2 + secondFatest.time + lowest.time + secondLowest.time; // 1 * 2 + 2 + 5 + 10 = 19
+  const lowestStrategie =
+    secondLowest.time * 2 + lowest.time + fatest.time + secondFatest.time; // 5 * 2 + 10 + 1 + 2 = 23
 
-    const medianStrategie = fatest.time + secondFatest.time * 3 + lowest.time; // 1 + 2 * 3 + 10 = 17
+  const medianStrategie = fatest.time + secondFatest.time * 3 + lowest.time; // 1 + 2 * 3 + 10 = 17
 
-    time += Math.min(fatestStrategie, lowestStrategie, medianStrategie);
-  }
+  time += Math.min(fatestStrategie, lowestStrategie, medianStrategie);
 
   return time;
 }
